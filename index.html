@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0d0f12">
+  <title>Tabula - Carved in stone.</title>
+  
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./assets/img/stele.webp" type="image/webp">
+  <link rel="stylesheet" href="./assets/css/stone.css">
+
+  <style>
+    .shell-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 2rem;
+      text-align: center;
+    }
+    .logo-stele {
+      width: 110px;
+      height: auto;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.6));
+      margin-bottom: 1.5rem;
+    }
+    .wordmark {
+      max-width: 240px;
+      height: auto;
+      margin-bottom: 0.75rem;
+    }
+    .subtext {
+      color: var(--text-weathered);
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--stone-800);
+      border: var(--border-slab);
+      border-radius: var(--radius-chiseled);
+      font-size: 0.8rem;
+      color: var(--text-moss);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--text-moss);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="shell-container">
+    <img src="./assets/img/stele.webp" alt="Tabula Stele" class="logo-stele">
+    <img src="./assets/img/tabula-logo.webp" alt="TABULA" class="wordmark">
+    <p class="subtext">Carved in stone. Free from the feed.</p>
+    
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      <span>Foundations Set. Ready for Phase 2.</span>
+    </div>
+  </main>
+
+  <script src="./assets/js/config.js"></script>
+  <script>
+    // Register PWA service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch((err) => {
+        // Fail silently; don't break UI for older WebViews
+        console.warn('SW registration skipped:', err);
+      });
+    }
+  </script>
+</body>
+</html>
