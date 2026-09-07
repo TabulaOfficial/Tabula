@@ -1,0 +1,81 @@
+/* ==========================================================================
+   TABULA DESIGN SYSTEM: CARVED IN STONE
+   Aesthetic: Obsidian slabs, carved fractures, chiseled relief.
+   ========================================================================== */
+
+:root {
+  /* Surface colors: Dark volcanic basalt & slate */
+  --stone-900: #0d0f12; /* Deep background void */
+  --stone-800: #15191e; /* Primary container slab */
+  --stone-700: #1e232a; /* Elevated card surface */
+  --stone-600: #2b323c; /* Chiseled borders & dividers */
+  --stone-500: #424c5a; /* Subdued stone markers */
+
+  /* Text & Inscription Tones */
+  --text-carved: #f0f3f6;   /* Primary high-contrast text */
+  --text-weathered: #8b949e; /* Secondary low-contrast text */
+  --text-moss: #56d364;      /* Success / Online state */
+  --text-rust: #f85149;      /* Destructive / Ban state */
+
+  /* Tabula Signature Chiseled Blues (Pulled from wordmark) */
+  --chisel-blue-900: #122338;
+  --chisel-blue-600: #1d3d63;
+  --chisel-blue-500: #2a5a92;
+  --chisel-blue-400: #3b7ac4;
+
+  /* Stone Tactile Borders */
+  --border-slab: 1px solid var(--stone-600);
+  --border-chiseled: 1px solid var(--chisel-blue-600);
+
+  /* Slab Relief (Hard stone elevation, soft glows rejected) */
+  --bevel-slab: inset 1px 1px 0px rgba(255, 255, 255, 0.05),
+                inset -1px -1px 0px rgba(0, 0, 0, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+  
+  --radius-chiseled: 4px; /* Soft round pills look terrible on stone. Keep it sharp. */
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--stone-900);
+  color: var(--text-carved);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Carved Stone Input Reset */
+input, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: var(--radius-chiseled);
+  border: var(--border-slab);
+  background-color: var(--stone-800);
+  color: var(--text-carved);
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--chisel-blue-600);
+  border: var(--border-chiseled);
+  box-shadow: var(--bevel-slab);
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+button:hover {
+  background-color: var(--chisel-blue-500);
+}
+
+button:active {
+  transform: translateY(1px);
+}
